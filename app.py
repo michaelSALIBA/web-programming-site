@@ -23,7 +23,7 @@ def home():
 
 @app.route("/internet-history")
 def internet_history():
-    return render_template("templates/History_of_the_internet.html")
+    return render_template("internet-history.html")
 
 
 @app.route("/web-history")
