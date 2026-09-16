@@ -23,23 +23,26 @@ def home():
 
 @app.route("/internet-history")
 def internet_history():
-    return render_template("internet-history.html")
+    return render_template("History_of_the_internet.html")
 
 
 @app.route("/web-history")
 def web_history():
-    return render_template("web-history.html")
+    return render_template("History_of_the_web.html")
 
 
 @app.route("/internet-history-ai")
 def internet_history_ai():
-    return render_template("internet-history-ai.html")
+    return render_template("History_of_the_internet(AI).html")
 
 
 @app.route("/web-history-ai")
 def web_history_ai():
-    return render_template("web-history-ai.html")
+    return render_template("History_of_the_web(AI).html")
 
+@app.route("/footer")
+def footer():
+    return render_template("footer.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
