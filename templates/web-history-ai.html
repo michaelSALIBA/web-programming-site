@@ -11,11 +11,11 @@
         <h1>History Of The Web</h1>
     </header>
 
-    <main>{%extends "base.html" %}
+    <main>
 
-        {% block title %}-History Of The Web{% endblock %}
+        <title>History Of The Web</title>
 
-        {% block content %}
+        <content>
         <section id="timeline">
             <article>
                 <h2>1989: Proposal for the World Wide Web</h2>
@@ -61,7 +61,8 @@
                 <h2>2014–2018: Ubiquitous Web Encryption (HTTPS Priority)</h2>
                 <p>Major browser vendors and initiative initiatives like Let's Encrypt pushed for universal transport security, prioritizing HTTPS over unencrypted HTTP. End-to-end encryption became standard across the web, protecting user privacy, securing web transactions, and preventing data tampering at scale.</p>
             </article>
-        </section>{% endblock %}
+        </section>
+        </content>
     </main>
 
     <footer>
@@ -84,7 +85,7 @@
     
     <footer>
 
-       <object type="text/html" data="footer.html" style="width: 100%; height: 100%; position: relative; top: 100px"></object>
+       <object type="text/html" data="/footer" style="width: 100%; height: 100%; position: relative; top: 100px"></object>
     </footer>
 
 </body>

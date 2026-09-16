@@ -11,11 +11,11 @@
         <h1>History Of The Internet</h1>
     </header>
 
-    <main>{%extends "base.html" %}
+    <main>
 
-        {% block title %}-History Of The Internet{% endblock %}
+        <title>History Of The Internet</title>
 
-        {% block content %}
+        <content>
         <section id="timeline">
             <article>
                 <h2>1965: First Wide-Area Network (WAN) Connection</h2>
@@ -61,7 +61,8 @@
                 <h2>1995: Commercialization &amp; NSFNET Decommissioning</h2>
                 <p>The US government retired NSFNET and opened Internet traffic to private commercial Network Access Points (NAPs) operated by ISPs. This event fully privatized the Internet's physical backbones, enabling global commercialization, telecom investment, and mainstream consumer adoption.</p>
             </article>
-        </section>{% endblock %}
+        </section>
+        </content>
     </main>
 
     <footer>
@@ -81,7 +82,7 @@
     </footer>
 <footer>
 
-       <object type="text/html" data="footer.html" style="width: 100%; height: 100%; position: relative; top: 100px"></object>
+       <object type="text/html" data="/footer" style="width: 100%; height: 100%; position: relative; top: 100px"></object>
     </footer>
 </body>
 </html>
