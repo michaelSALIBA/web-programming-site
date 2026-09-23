@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Of The Web</title>
-</head>
-<body>
-
-    <header>
+{%extends "base.html"%}
+{%block title%}Web History{%endblock%}
+    {%block content%}
         <h1>History Of The Web</h1>
     </header>
 
@@ -67,7 +60,7 @@
 
     <footer>
         <h2>References:</h2>
-        <nav aria-label="References">
+        <nav> 
             <ul>
                 <li><a href="https://home.cern/science/computing/the-birth-of-the-web">CERN — The Birth of the Web</a></li>
                 <li><a href="https://home.cern/science/computing/the-birth-of-the-web/licensing-web">CERN — Licensing the Web</a></li>
@@ -81,12 +74,4 @@
             </ul>
         </nav>
     </footer>
-
-    
-    <footer>
-
-       <object type="text/html" data="/footer" style="width: 100%; height: 100%; position: relative; top: 100px"></object>
-    </footer>
-
-</body>
-</html>
+{%endblock%}

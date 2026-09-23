@@ -40,9 +40,9 @@ def internet_history_ai():
 def web_history_ai():
     return render_template("web-history-ai.html")
 
-@app.route("/footer")
+@app.route("/base")
 def footer():
-    return render_template("footer.html")
+    return render_template("base.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
