@@ -12,10 +12,16 @@
     <link rel="stylesheet"
  href="{{ url_for('static', filename='style.css') }}"
 />
+
+<link rel="stylesheet"
+ href="{{ url_for('static', filename='my_styles.css') }}" />
+{% block head %}{% endblock %}
+
 </head>
+
 <body>
     <header>
-        <h1>Web Programming Portfolio — Micheal Saliba</h1>
+        <h1>Web Programming Portfolio — Michael Saliba</h1>
         <p>A live site that grows one page or feature every week.</p>
     </header>
     <nav>

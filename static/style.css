@@ -32,8 +32,9 @@
   --transition: all 0.2s ease-in-out;
 }
 
-/*  1. BASE STYLES (Mobile First — 375px Viewports & Up)*/
+/* 1. BASE STYLES (Mobile First — 375px Viewports & Up) */
 
+/* FIX: Corrected syntax error '-' to '*' */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -56,7 +57,7 @@ body {
   min-height: 100vh;
 }
 
-/* Typography & Links*/
+/* Typography & Links */
 h1, h2, h3 {
   font-family: var(--font-heading);
   line-height: 1.25;
@@ -74,7 +75,7 @@ a:hover {
   color: var(--primary-hover);
 }
 
-/*Header Section (Mobile)*/
+/* Header Section (Mobile) */
 header {
   background-color: var(--bg-dark);
   color: #ffffff;
@@ -95,7 +96,7 @@ header p {
   line-height: 1.5;
 }
 
-/* Flexbox Navigation (Mobile Touch-Friendly)*/
+/* Flexbox Navigation (Mobile Touch-Friendly) */
 nav {
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-color);
@@ -131,7 +132,7 @@ nav a:hover {
   background-color: var(--bg-surface-hover);
 }
 
-/* Main Content Area (Mobile)*/
+/* Main Content Area (Mobile) */
 main {
   flex: 1;
   width: 100%;
@@ -153,7 +154,7 @@ section h2 {
   margin-bottom: var(--gap-md);
 }
 
-/*CSS Grid Weekly Work Gallery (Mobile Stack)*/
+/* CSS Grid Weekly Work Gallery (Mobile Stack) */
 main section ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -188,7 +189,7 @@ main section ul li a:hover {
   color: var(--primary);
 }
 
-/* Footer (Mobile)*/
+/* Footer (Mobile) */
 footer {
   background-color: var(--bg-surface);
   border-top: 1px solid var(--border-color);
@@ -209,7 +210,49 @@ footer p:first-child {
   margin-bottom: var(--gap-xs);
 }
 
-/*2. TABLET MEDIA QUERY (min-width: 640px)*/
+/* ==========================================================================
+   ADDED: PROFILE DISPLAY STYLES (Styles raw output in instructor profile.html)
+   ========================================================================== */
+
+/* Section headers for Academic Info, Technical Background, FYP */
+main h2 {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-top: var(--gap-lg);
+  margin-bottom: var(--gap-sm);
+  padding-bottom: 4px;
+  border-bottom: 2px solid #e11d48; /* Red accent line under section titles */
+}
+
+/* Paragraph spacing & alignment */
+main p {
+  margin-bottom: var(--gap-sm);
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* Converts inline lists (skills/software) into pill tags */
+main p:has(a), main section p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Links (GitHub, GIN446, edit & resubmit) */
+main a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+main a:hover {
+  color: var(--primary-hover);
+}
+
+
+/* 2. TABLET MEDIA QUERY (min-width: 640px) */
 
 @media (min-width: 640px) {
   :root {
@@ -254,7 +297,7 @@ footer p:first-child {
   }
 }
 
-/*3. DESKTOP MEDIA QUERY (min-width: 1024px) */
+/* 3. DESKTOP MEDIA QUERY (min-width: 1024px) */
 
 @media (min-width: 1024px) {
   :root {
@@ -288,4 +331,15 @@ footer p:first-child {
   main section ul li:hover {
     transform: translateY(-3px);
   }
+}
+
+
+/* Profile page: undo the site-banner styles on the profile header */
+
+.profile .profile-contact {
+    color: #f1f5f9;  
+}
+
+.profile .profile-contact a {
+    color: #2563eb; 
 }

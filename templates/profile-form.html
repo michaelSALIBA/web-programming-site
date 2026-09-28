@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block title %} Engineering Student Profile {% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='form_style.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h2>Engineering Student Profile</h2>
+  <p class="form-intro">
+    Complete this form to provide information about your academic background, technical skills, internship experience, and Final Year Project preferences.
+  </p>
+
+  <form action="{{ url_for('submit_profile') }}" method="post" class="profile-form">
+
+    <!-- 1. Personal Information -->
+    <fieldset class="form-section">
+      <legend><h3>1. Personal Information</h3></legend>
+
+      <div class="form-group">
+        <label for="stdId">Student ID:</label>
+        <input type="text" id="stdId" name="student_id" minlength="9" maxlength="9" placeholder="202400486" required>
+      </div>
+
+      <div class="form-group">
+        <label for="fname">Full Name:</label>
+        <input type="text" id="fname" name="fullname" placeholder="Michael Saliba" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Usek Email:</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="michael.saliba@net.usek.edu.lb"
+          pattern="[a-zA-Z][a-zA-Z0-9]*(\.[a-zA-Z0-9]+)*@net\.usek\.edu\.lb"
+          title="Please enter a valid USEK email starting with a letter (e.g., firstname.lastname@net.usek.edu.lb)"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Mobile Number:</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone" 
+          placeholder="+961 70 123 456"
+          pattern="(\+?961|00961)?\s?0?(3|70|71|76|78|79|81)\s?\d{3}\s?\d{3}"
+          title="Please enter a valid Lebanese mobile number starting with 03, 70, 71, 76, 78, 79, or 81"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="birthdate">Date of Birth:</label>
+        <input type="date" id="birthdate" name="birthdate">
+      </div>
+
+      <div class="form-group">
+        <label for="portfolio">GitHub:</label>
+        <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/username">
+      </div>
+
+      <div class="form-group">
+        <label for="gin446">GIN446 Website:</label>
+        <input type="url" id="gin446" name="gin446" placeholder="https://gin446.usek.edu.lb">
+      </div>
+    </fieldset>
+
+    <!-- 2. Academic Information -->
+    <fieldset class="form-section">
+      <legend><h3>2. Academic Information</h3></legend>
+
+      <div class="form-group">
+        <label for="major">Engineering Major:</label>
+        <select id="major" name="major">
+          <option value="computer">Computer Engineering</option>
+          <option value="electrical">Electrical Engineering</option>
+          <option value="mechanical">Mechanical Engineering</option>
+          <option value="civil">Civil Engineering</option>
+          <option value="chemical">Chemical Engineering</option>
+          <option value="telecommunications">Telecommunications Engineering</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="gpa">Current GPA/100:</label>
+        <input type="number" id="gpa" name="gpa" min="0" max="100" step="0.01" placeholder="85.50">
+      </div>
+
+      <div class="form-group">
+        <label for="credits">Credits Completed:</label>
+        <input type="number" id="credits" name="credits" min="0" placeholder="120">
+      </div>
+
+      <div class="form-group">
+        <label for="graduation">Expected Graduation Season:</label>
+        <select id="graduation" name="graduation">
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="fall">Fall</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="graduation_month">Graduation Month & Year:</label>
+        <input type="month" id="graduation_month" name="graduation_month">
+      </div>
+
+      <div class="form-group">
+        <label for="internship_completed">Have you completed an engineering internship?</label>
+        <select id="internship_completed" name="internship_completed">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <!-- 3. Technical Background -->
+    <fieldset class="form-section">
+      <legend><h3>3. Technical Background</h3></legend>
+
+      <div class="form-group">
+        <label>Select all areas in which you have experience:</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" id="skills1" name="skills" value="programming"> Programming</label>
+          <label class="checkbox-label"><input type="checkbox" id="skills2" name="skills" value="embedded-systems"> Embedded Systems</label>
+          <label class="checkbox-label"><input type="checkbox" id="skills3" name="skills" value="electronics"> Electronics</label>
+          <label class="checkbox-label"><input type="checkbox" id="skills4" name="skills" value="computer-networking"> Computer Networks</label>
+          <label class="checkbox-label"><input type="checkbox" id="skills5" name="skills" value="telecommunications"> Telecommunications</label>
+          <label class="checkbox-label"><input type="checkbox" id="skills6" name="skills" value="biomedical-instruments"> Biomedical Instruments</label>
+          <label class="checkbox-label"><input type="checkbox" id="skills7" name="skills" value="machine-learning"> AI / Machine Learning</label>
+          <label class="checkbox-label"><input type="checkbox" id="skills8" name="skills" value="signal-processing"> Signal Processing</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="language">Primary Programming Language:</label>
+        <input type="text" id="language" name="language" placeholder="Python">
+      </div>
+
+      <div class="form-group">
+        <label for="software">Engineering Software Used:</label>
+        <select id="software" name="software" >
+          <option value="matlab">MATLAB</option>
+          <option value="labview">LabVIEW</option>
+          <option value="cad">CAD Software (e.g., AutoCAD, SolidWorks)</option>
+          <option value="simulink">Simulink</option>
+          <option value="multisim">Multisim</option>
+          <option value="pspice">PSpice</option>
+        </select>
+        <small class="help-text">Hold Ctrl (Windows) or Cmd (Mac) to select multiple options.</small>
+      </div>
+    </fieldset>
+
+    <!-- 4. Final Year Project -->
+    <fieldset class="form-section">
+      <legend><h3>4. Final Year Project</h3></legend>
+
+      <div class="form-group">
+        <label for="project_title">Proposed Project Title:</label>
+        <input type="text" id="project_title" name="project_title" placeholder="Smart Home Automation System">
+      </div>
+
+      <div class="form-group">
+        <label for="project_area">Preferred Project Area:</label>
+        <select id="project_area" name="project_area">
+          <option value="programming">Programming</option>
+          <option value="embedded-systems">Embedded Systems</option>
+          <option value="electronics">Electronics</option>
+          <option value="computer-networking">Computer Networks</option>
+          <option value="telecommunications">Telecommunications</option>
+          <option value="biomedical-instruments">Biomedical Instruments</option>
+          <option value="machine-learning">AI / Machine Learning</option>
+          <option value="signal-processing">Signal Processing</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Brief Project Description:</label>
+        <textarea id="description" name="projectdescription" rows="4" placeholder="Describe the problem, propose solution, and expected outcomes..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="team_size">Preferred Team Size:</label>
+        <input type="number" id="team_size" name="team_size" min="2" max="4" placeholder="3">
+      </div>
+
+      <div class="form-group inline-group">
+        <label for="project_color">Choose a color for your project dashboard:</label>
+        <input type="color" id="project_color" name="project_color" value="#1e3a8a">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="meeting_date">Preferred Meeting Date:</label>
+          <input type="date" id="meeting_date" name="meeting_date">
+        </div>
+        <div class="form-group">
+          <label for="meeting_time">Preferred Meeting Time:</label>
+          <input type="time" id="meeting_time" name="meeting_time">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Confirmation & Form Actions -->
+    <div class="form-group confirm-group">
+      <label class="checkbox-label" for="confirmation">
+        <input type="checkbox" id="confirmation" name="confirmation" required>
+        I confirm that the information provided is accurate and complete.
+      </label>
+    </div>
+
+    <div class="form-actions">
+
+    <input type="hidden" name="form_version" value="1.0">
+      <input type="submit" value="Submit Profile" class="btn btn-primary">
+      <input type="reset" value="Clear Form" class="btn btn-secondary">
+    </div>
+
+  </form>
+</div>
+{% endblock %}
