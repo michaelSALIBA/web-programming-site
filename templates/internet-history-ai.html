@@ -1,79 +1,96 @@
-{%extends "base.html"%}
-{%block title%} Internet History {%endblock%}
-    {%block content%}
+{% extends "base.html" %}
+{% block title %} Internet History {% endblock %}
 
-        <h1>History Of The Internet</h1>
-    </header>
+{% block content %}
 
-    <main>
+<h1>History Of The Internet</h1>
 
-        <title>History Of The Internet</title>
+<section id="timeline">
+  <article class="milestone">
+    <h2>1965: First Wide-Area Network (WAN) Connection</h2>
+    <p>Lawrence Roberts and Thomas Merrill connected a TX-2 computer in Massachusetts to an Q-32 computer in California over a low-speed dial-up phone line. This proved that computers could talk to each other and share resources across geographic distances, but highlighted that telephone circuit-switching was too slow and unreliable for data networks.</p>
+  </article>
 
-        <content>
-        <section id="timeline">
-            <article>
-                <h2>1965: First Wide-Area Network (WAN) Connection</h2>
-                <p>Lawrence Roberts and Thomas Merrill connected a TX-2 computer in Massachusetts to an Q-32 computer in California over a low-speed dial-up phone line this proved that computers could talk to each other and share resources across geographic distances, but highlighted that telephone circuit-switching was too slow and unreliable for data networks.</p>
-            </article>
+  <article class="milestone">
+    <h2>1969: ARPANET Goes Live &amp; First Message Sent</h2>
+    <p>Funded by the U.S. DoD's ARPA, the first node-to-node message ("LO") was sent from UCLA to Stanford using Interface Message Processor (IMP) hardware. That marked the deployment of operational packet switching, proving data could be split into independent packets and routed dynamically across a decentralized network.</p>
+  </article>
 
-            <article>
-                <h2>1969: ARPANET Goes Live &amp; First Message Sent</h2>
-                <p>Funded by the U.S. DoD's ARPA, the first node-to-node message ("LO") was sent from UCLA to Stanford using Interface Message Processor (IMP) hardware. ThatMarked the deployment of operational packet switching, proving data could be split into independent packets and routed dynamically across a decentralized network.</p>
-            </article>
+  <article class="milestone">
+    <h2>1971: Invention of Network Email</h2>
+    <p>Ray Tomlinson wrote the first networked email program for ARPANET, introducing the @ symbol to separate user names from machine names. This event shifted network utility from raw computing resource-sharing to human-to-human communication, becoming the network's first killer application.</p>
+  </article>
 
-            <article>
-                <h2>1971: Invention of Network Email</h2>
-                <p>Ray Tomlinson wrote the first networked email program for ARPANET, introducing the @ symbol to separate user names from machine names. This event shifted network utility from raw computing resource-sharing to human-to-human communication, becoming the network's first killer application.</p>
-            </article>
+  <article class="milestone">
+    <h2>1974: TCP Design Published</h2>
+    <p>Vint Cerf and Bob Kahn published "A Protocol for Packet Network Intercommunication", introducing the design for the Transmission Control Protocol (TCP). This event provided an open architectural blueprint for connecting completely different physical networks (satellite, radio, landline) without forcing them to change their internal hardware.</p>
+  </article>
 
-            <article>
-                <h2>1974: TCP Design Published</h2>
-                <p>Vint Cerf and Bob Kahn published "A Protocol for Packet Network Intercommunication", introducing the design for the Transmission Control Protocol (TCP). This event provided an open architectural blueprint for connecting completely different physical networks (satellite, radio, landline) without forcing them to change their internal hardware.</p>
-            </article>
+  <article class="milestone">
+    <h2>1983: Flag Day: Official Adoption of TCP/IP</h2>
+    <p>On January 1, 1983, ARPANET permanently disabled its original host protocol (NCP) and mandated TCP/IP across all nodes. This event created the global "network of networks"—this standard protocol suite is recognized as the birth of the modern Internet.</p>
+  </article>
 
-            <article>
-                <h2>1983: Flag Day: Official Adoption of TCP/IP</h2>
-                <p>On January 1, 1983, ARPANET permanently disabled its original host protocol (NCP) and mandated TCP/IP across all nodes. This event created the global "network of networks"—this standard protocol suite is recognized as the birth of the modern Internet.</p>
-            </article>
+  <article class="milestone">
+    <h2>1983: Domain Name System (DNS) Invented</h2>
+    <p>Paul Mockapetris developed DNS to dynamically translate domain names into numerical IP addresses. This event replaced a single central HOSTS.TXT file with a scalable, distributed database structure, allowing the Internet to scale infinitely without network mapping bottlenecks.</p>
+  </article>
 
-            <article>
-                <h2>1983: Domain Name System (DNS) Invented</h2>
-                <p>Paul Mockapetris developed DNS to dynamically translate domain names into numerical IP addresses. This event replaced a single central HOSTS.TXT file with a scalable, distributed database structure, allowing the Internet to scale infinitely without network mapping bottlenecks.</p>
-            </article>
+  <article class="milestone">
+    <h2>1986: NSFNET Backbone Deployed</h2>
+    <p>The National Science Foundation funded a high-speed 56 kbps (later T1/T3) national backbone connecting university supercomputers. This event expanded Internet access beyond military contractors to academic researchers nationwide, serving as the core infrastructure of the Internet through the early 1990s.</p>
+  </article>
 
-            <article>
-                <h2>1986: NSFNET Backbone Deployed</h2>
-                <p>The National Science Foundation funded a high-speed 56 kbps (later T1/T3) national backbone connecting university supercomputers. Thnis event expanded Internet access beyond military contractors to academic researchers nationwide, serving as the core infrastructure of the Internet through the early 1990s.</p>
-            </article>
+  <article class="milestone">
+    <h2>1989: BGP (Border Gateway Protocol) Developed</h2>
+    <p>Kirk Lougheed and Yakov Rekhter defined BGP to manage core routing decisions across independent networks (Autonomous Systems). This event enabled the Internet to function as a true global network, allowing different autonomous systems to communicate and route traffic effectively. Allowed thousands of distinct commercial, military, and academic networks to exchange traffic reliably without relying on a single centralized administrator.</p>
+  </article>
 
-            <article>
-                <h2>1989: BGP (Border Gateway Protocol) Developed</h2>
-                <p>Kirk Lougheed and Yakov Rekhter defined BGP to manage core routing decisions across independent networks (Autonomous Systems). This event enabled the Internet to function as a true global network, allowing different autonomous systems to communicate and route traffic effectively. Allowed thousands of distinct commercial, military, and academic networks to exchange traffic reliably without relying on a single centralized administrator.</p>
-            </article>
+  <article class="milestone">
+    <h2>1995: Commercialization &amp; NSFNET Decommissioning</h2>
+    <p>The US government retired NSFNET and opened Internet traffic to private commercial Network Access Points (NAPs) operated by ISPs. This event fully privatized the Internet's physical backbones, enabling global commercialization, telecom investment, and mainstream consumer adoption.</p>
+  </article>
 
-            <article>
-                <h2>1995: Commercialization &amp; NSFNET Decommissioning</h2>
-                <p>The US government retired NSFNET and opened Internet traffic to private commercial Network Access Points (NAPs) operated by ISPs. This event fully privatized the Internet's physical backbones, enabling global commercialization, telecom investment, and mainstream consumer adoption.</p>
-            </article>
-        </section>
-        </content>
-    </main>
+  <article class="milestone">
+    <h2>1997–1999: Broadband Expansion &amp; Wi-Fi Standardization</h2>
+    <p>High-speed DSL and cable connections began replacing dial-up modems, while the IEEE 802.11 committee introduced standard Wi-Fi protocols (802.11b). Always-on broadband and wireless local networks untethered computing devices, allowing seamless home internet access and rich media streaming.</p>
+  </article>
 
-    
-        <h2>References</h2>
-        <nav aria-label="References">
-            <ul>
-                <li><a href="https://computerhistory.org">Computer History Museum</a></li>
-                <li><a href="https://samueli.ucla.edu">University of California / UCLA Samueli</a></li>
-                <li><a href="https://internethalloffame.org">Internet Hall of Fame (Ray Tomlinson / BBN)</a></li>
-                <li><a href="https://museum.parallel.ai">Museum of the Human Web / IEEE</a></li>
-                <li><a href="https://darpa.mil">Defense Advanced Research Projects Agency (DARPA)</a></li>
-                <li><a href="https://internetsociety.org">Internet Society &amp; History of Domain Names</a></li>
-                <li><a href="https://nsf.net">National Science Foundation Network (NSFNET) History</a></li>
-                <li><a href="https://datatracker.ietf.org">Internet Engineering Task Force (IETF)</a></li>
-            </ul>
-        </nav>
-    
+  <article class="milestone">
+    <h2>2001–2007: Mobile Internet &amp; 3G Network Rollout</h2>
+    <p>The global commercial deployment of 3G cellular standards provided high-speed packet data directly to mobile devices. Mobile networks transitioned handheld devices from basic voice/text tools into fully connected internet terminals, paving the way for smartphones and modern mobile app ecosystems.</p>
+  </article>
 
+  <article class="milestone">
+    <h2>2010: 4G LTE High-Speed Wireless Deployment</h2>
+    <p>The global commercial rollout of 4G LTE cellular standards drastically increased mobile transmission speeds and reduced latency. High-speed mobile bandwidth enabled real-time cloud services, HD video streaming, remote collaboration, and complex web applications on mobile devices.</p>
+  </article>
 
-{%endblock%}
+  <article class="milestone">
+    <h2>2011–2012: Global IPv6 Adoption &amp; IPv4 Exhaustion</h2>
+    <p>With available 32-bit IPv4 addresses running out, the IETF organized World IPv6 Launch Day in 2012 to mandate global adoption of 128-bit IPv6 addressing. IPv6 dramatically expanded available address space, ensuring the Internet could securely scale to accommodate tens of billions of smart devices and IoT hardware.</p>
+  </article>
+
+  <article class="milestone">
+    <h2>2019–Present: 5G Wireless &amp; Modern Connected Infrastructure</h2>
+    <p>The deployment of ultra-fast 5G cellular infrastructure introduced multi-gigabit wireless transmission with millisecond latency. 5G network capacity powers modern distributed systems, autonomous transportation, industrial IoT networks, and edge computing environments worldwide.</p>
+  </article>
+</section>
+
+<section class="references">
+  <h2>References</h2>
+  <ul>
+    <li><a href="https://computerhistory.org">Computer History Museum</a></li>
+    <li><a href="https://samueli.ucla.edu">University of California / UCLA Samueli</a></li>
+    <li><a href="https://internethalloffame.org">Internet Hall of Fame (Ray Tomlinson / BBN)</a></li>
+    <li><a href="https://museum.parallel.ai">Museum of the Human Web / IEEE</a></li>
+    <li><a href="https://darpa.mil">Defense Advanced Research Projects Agency (DARPA)</a></li>
+    <li><a href="https://internetsociety.org">Internet Society &amp; History of Domain Names</a></li>
+    <li><a href="https://nsf.net">National Science Foundation Network (NSFNET) History</a></li>
+    <li><a href="https://datatracker.ietf.org">Internet Engineering Task Force (IETF)</a></li>
+    <li><a href="https://www.ieee.org">Institute of Electrical and Electronics Engineers (IEEE 802.11)</a></li>
+    <li><a href="https://www.3gpp.org">3rd Generation Partnership Project (3GPP Cellular Standards)</a></li>
+  </ul>
+</section>
+
+{% endblock %}

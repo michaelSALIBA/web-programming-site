@@ -34,7 +34,6 @@
 
 /* 1. BASE STYLES (Mobile First — 375px Viewports & Up) */
 
-/* FIX: Corrected syntax error '-' to '*' */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -154,15 +153,90 @@ section h2 {
   margin-bottom: var(--gap-md);
 }
 
+/* ==========================================================================
+   MILESTONE CARDS (Web & Internet History Pages)
+   ========================================================================== */
+
+.milestone {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: var(--gap-md) var(--gap-lg);
+  margin-bottom: var(--gap-md);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+.milestone:hover {
+  border-color: var(--accent-ice);
+  border-left-color: var(--primary-hover);
+  box-shadow: var(--shadow-hover);
+  background-color: #ffffff;
+}
+
+.milestone h2 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-family: var(--font-heading);
+  margin-bottom: var(--gap-xs);
+}
+
+.milestone p {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   REFERENCES SECTION STYLES
+   ========================================================================== */
+
+.references {
+  margin-top: var(--gap-xl);
+  padding-top: var(--gap-lg);
+  border-top: 2px solid var(--accent-ice);
+}
+
+.references h2 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: var(--gap-md);
+}
+
+.references ul {
+  list-style-type: disc;
+  padding-left: var(--gap-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
+
+.references li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.references a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.references a:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
+}
+
 /* CSS Grid Weekly Work Gallery (Mobile Stack) */
-main section ul {
+main section ul:not(.references ul) {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--gap-md);
   list-style: none;
 }
 
-main section ul li {
+main section ul:not(.references ul) li {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -171,13 +245,13 @@ main section ul li {
   transition: var(--transition);
 }
 
-main section ul li:hover {
+main section ul:not(.references ul) li:hover {
   border-color: var(--accent-ice);
   box-shadow: var(--shadow-hover);
   background-color: #ffffff;
 }
 
-main section ul li a {
+main section ul:not(.references ul) li a {
   display: block;
   font-weight: 500;
   color: var(--text-main);
@@ -185,7 +259,7 @@ main section ul li a {
   word-break: break-word;
 }
 
-main section ul li a:hover {
+main section ul:not(.references ul) li a:hover {
   color: var(--primary);
 }
 
@@ -211,28 +285,25 @@ footer p:first-child {
 }
 
 /* ==========================================================================
-   ADDED: PROFILE DISPLAY STYLES (Styles raw output in instructor profile.html)
+   PROFILE DISPLAY STYLES
    ========================================================================== */
 
-/* Section headers for Academic Info, Technical Background, FYP */
-main h2 {
+main h2:not(.milestone h2):not(.references h2) {
   color: var(--primary);
   font-family: var(--font-heading);
   font-size: 1.4rem;
   margin-top: var(--gap-lg);
   margin-bottom: var(--gap-sm);
   padding-bottom: 4px;
-  border-bottom: 2px solid #e11d48; /* Red accent line under section titles */
+  border-bottom: 2px solid #e11d48;
 }
 
-/* Paragraph spacing & alignment */
 main p {
   margin-bottom: var(--gap-sm);
   line-height: 1.6;
   color: var(--text-main);
 }
 
-/* Converts inline lists (skills/software) into pill tags */
 main p:has(a), main section p {
   display: flex;
   flex-wrap: wrap;
@@ -240,7 +311,6 @@ main p:has(a), main section p {
   align-items: center;
 }
 
-/* Links (GitHub, GIN446, edit & resubmit) */
 main a {
   color: var(--primary);
   font-weight: 600;
@@ -250,7 +320,6 @@ main a {
 main a:hover {
   color: var(--primary-hover);
 }
-
 
 /* 2. TABLET MEDIA QUERY (min-width: 640px) */
 
@@ -288,7 +357,7 @@ main a:hover {
   }
 
   /* Multi-column Grid Gallery */
-  main section ul {
+  main section ul:not(.references ul) {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
@@ -323,23 +392,23 @@ main a:hover {
     font-size: 2.25rem;
   }
 
-  main section ul {
+  main section ul:not(.references ul) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--gap-md);
   }
 
-  main section ul li:hover {
+  main section ul:not(.references ul) li:hover,
+  .milestone:hover {
     transform: translateY(-3px);
   }
 }
 
-
 /* Profile page: undo the site-banner styles on the profile header */
 
 .profile .profile-contact {
-    color: #f1f5f9;  
+  color: #f1f5f9;  
 }
 
 .profile .profile-contact a {
-    color: #2563eb; 
+  color: #2563eb; 
 }

@@ -35,7 +35,11 @@
   line-height: 1.6;
 }
 
-/* Eye-Catching Section Cards with Accent Top Borders */
+/* ==========================================================================
+   Fieldsets & Section Cards
+   ========================================================================== */
+
+/* Outer Section Cards */
 .form-section {
   border: 1px solid var(--border-color);
   border-top: 4px solid var(--primary);
@@ -64,7 +68,25 @@
   letter-spacing: -0.01em;
 }
 
-/* Styled Form Controls & Inputs */
+/* Inner Fieldsets (Reset default browser styling) */
+fieldset.form-group {
+  border: none;
+  margin: 0 0 var(--gap-md) 0;
+  padding: 0;
+}
+
+fieldset.form-group legend {
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  padding: 0;
+}
+
+/* ==========================================================================
+   Form Groups & Standard Inputs
+   ========================================================================== */
+
 .form-group {
   margin-bottom: var(--gap-md);
   display: flex;
@@ -76,6 +98,16 @@
   color: var(--text-main);
   margin-bottom: 6px;
   font-size: 0.92rem;
+}
+
+/* Side-by-Side Form Rows (e.g., Meeting Date & Time) */
+.form-row {
+  display: flex;
+  gap: var(--gap-md);
+}
+
+.form-row .form-group {
+  flex: 1;
 }
 
 input[type="text"],
@@ -99,6 +131,25 @@ textarea {
   transition: var(--transition);
 }
 
+/* Multi-Select Box Specific Styling */
+select[multiple] {
+  height: auto;
+  min-height: 130px;
+  padding: 8px;
+}
+
+select[multiple] option {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+select[multiple] option:checked {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
 /* High-Contrast Focus Ring */
 input:focus,
 select:focus,
@@ -114,7 +165,99 @@ textarea {
   min-height: 110px;
 }
 
-/* Checkbox Card Grid */
+.help-text {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   Radio Group Component (Horizontal Layout & Full Card Clickability)
+   ========================================================================== */
+
+fieldset.radio-group-fieldset {
+  border: none;
+  margin: 0 0 var(--gap-md) 0;
+  padding: 0;
+}
+
+fieldset.radio-group-fieldset legend {
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  padding: 0;
+}
+
+/* Horizontal flexbox for options */
+.radio-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  margin-top: 6px;
+}
+
+.radio-item {
+  position: relative; /* Allows label::before to cover the card */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.radio-item:hover {
+  border-color: var(--primary);
+  background-color: var(--bg-surface-hover);
+}
+
+.radio-item input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  margin: 0;
+}
+
+.radio-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  cursor: pointer;
+  margin-bottom: 0;
+  user-select: none;
+}
+
+/* Expands click target to cover entire radio card */
+.radio-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Highlight card & text when radio option is checked */
+.radio-item:has(input[type="radio"]:checked) {
+  border-color: var(--primary);
+  background-color: var(--accent-ice);
+}
+
+.radio-item input[type="radio"]:checked + .radio-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Checkbox Grid Component (Full Card Clickability)
+   ========================================================================== */
+
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -122,7 +265,9 @@ textarea {
   margin-top: 6px;
 }
 
-.checkbox-label {
+/* Wrapper box for each checkbox + label pair */
+.checkbox-item {
+  position: relative; /* Allows label::before to cover the card */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -130,25 +275,65 @@ textarea {
   background: #ffffff;
   border: 2px solid var(--border-color);
   border-radius: var(--radius-sm);
-  font-weight: 500;
-  font-size: 0.9rem;
-  cursor: pointer;
   transition: var(--transition);
+  cursor: pointer;
 }
 
-.checkbox-label:hover {
+.checkbox-item:hover {
   border-color: var(--primary);
   background-color: var(--bg-surface-hover);
 }
 
-.checkbox-label input[type="checkbox"] {
+/* Checkbox Input Styling */
+.checkbox-item input[type="checkbox"] {
   width: 18px;
   height: 18px;
   accent-color: var(--primary);
   cursor: pointer;
+  margin: 0;
 }
 
-/* Live Dashboard Theme Preview Component */
+/* Checkbox Text Label */
+.checkbox-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  cursor: pointer;
+  margin-bottom: 0;
+  user-select: none;
+}
+
+/* Expands click target to cover entire checkbox card */
+.checkbox-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Highlight card & text when checkbox is checked */
+.checkbox-item:has(input[type="checkbox"]:checked) {
+  border-color: var(--primary);
+  background-color: var(--accent-ice);
+}
+
+.checkbox-item input[type="checkbox"]:checked + .checkbox-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Live Dashboard Theme Preview Component
+   ========================================================================== */
+
+.inline-group {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-md);
+}
+
 .dashboard-color-picker {
   background-color: #ffffff;
   border: 2px dashed var(--border-color);
@@ -239,12 +424,22 @@ input[type="color"] {
   color: var(--text-main);
 }
 
-/* Submission Actions */
+/* ==========================================================================
+   Submission Actions & Confirmation
+   ========================================================================== */
+
 .confirm-group {
   background-color: var(--accent-ice);
   border: 2px solid var(--primary);
   padding: var(--gap-md);
   border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.confirm-group .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .form-actions {

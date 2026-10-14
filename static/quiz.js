@@ -250,4 +250,4 @@ function showResults(score, percentage, message, correction) {
 }
 
 // Ensure DOM elements are fully loaded before rendering
-document.addEventListener("DOMContentLoaded", renderQuestion);
+document.addEventListener("DOMContentLoaded", renderQuestion); 
